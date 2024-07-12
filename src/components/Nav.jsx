@@ -1,5 +1,5 @@
 import { headerLogo } from "../assets/images";
-import { hamburger, moon, sun } from "../assets/icons";
+import { moon, sun } from "../assets/icons";
 import { navLinks } from "../constants";
 import { useState } from "react";
 
@@ -20,10 +20,13 @@ const Nav = () => {
         <ul className="flex-1 flex justify-center items-center gap-16 max-lg:hidden">
           {navLinks.map((link) => {
             return (
-              <li key={link.label}>
+              <li
+                key={link.label}
+                className="hover:border-b-2 hover:border-b-coral-red"
+              >
                 <a
                   href={link.href}
-                  className="font-montserrat leading-normal text-lg text-slate-gray"
+                  className="font-montserrat leading-normal text-lg text-slate-gray dark:text-slate-500"
                 >
                   {link.label}
                 </a>
@@ -31,14 +34,18 @@ const Nav = () => {
             );
           })}
         </ul>
-        <div onClick={toggleTheme}>
+        <div
+          onClick={toggleTheme}
+          className="max-xl:dark:bg-blue-400 max-xl:bg-orange-200 p-2 rounded-full"
+        >
           {darkTheme ? (
-            <img src={moon} alt="theme" width={25} height={25} className="" />
+            <img src={moon} alt="theme" width={25} height={25} />
           ) : (
             <img src={sun} alt="theme" width={25} height={25} className="" />
           )}
         </div>
-        <div>
+        {/* TODO: implement hamberger navigations */}
+        {/* <div>
           <img
             src={hamburger}
             alt="hamburger"
@@ -46,7 +53,7 @@ const Nav = () => {
             height={25}
             className="hidden max-lg:block"
           />
-        </div>
+        </div> */}
       </nav>
     </header>
   );

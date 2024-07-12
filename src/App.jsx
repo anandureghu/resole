@@ -10,7 +10,7 @@ import SuperQuality from "./sections/SuperQuality";
 
 const App = () => {
   return (
-    <main className="relative">
+    <main className="relative dark:bg-slate-900">
       <Nav />
       <section className="xl:padding-l wide:padding-r padding-b">
         <Hero />
