@@ -1,8 +1,16 @@
 import { headerLogo } from "../assets/images";
-import { hamburger } from "../assets/icons";
+import { hamburger, moon, sun } from "../assets/icons";
 import { navLinks } from "../constants";
+import { useState } from "react";
 
 const Nav = () => {
+  const [darkTheme, setDarkTheme] = useState(false);
+
+  const toggleTheme = () => {
+    setDarkTheme(!darkTheme);
+    document.body.classList.toggle("dark");
+  };
+
   return (
     <header className="padding-x py-8 absolute z-10 w-full">
       <nav className="flex justify-between items-center max-container">
@@ -23,6 +31,13 @@ const Nav = () => {
             );
           })}
         </ul>
+        <div onClick={toggleTheme}>
+          {darkTheme ? (
+            <img src={moon} alt="theme" width={25} height={25} className="" />
+          ) : (
+            <img src={sun} alt="theme" width={25} height={25} className="" />
+          )}
+        </div>
         <div>
           <img
             src={hamburger}
